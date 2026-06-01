@@ -66,6 +66,10 @@ body {
   .persona-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
+@media (max-width: 480px) {
+  .gajila-badge { display: none !important; }
+}
+
 /* Global mobile padding */
 @media (max-width: 480px) {
   section { padding-left: 0 !important; padding-right: 0 !important; }

@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+
 const G = '#1D6F42'
 const G2 = '#E8F5EE'
 
@@ -19,6 +22,28 @@ const G2 = '#E8F5EE'
 const DRIVE_LINK = 'https://docs.google.com/spreadsheets/d/1znncCtxazW07JsGrIaDprxYbMa1lGcBR/edit?usp=sharing'
 
 export default function TerimaKasih() {
+  const router = useRouter()
+  const [allowed, setAllowed] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    // Boleh akses jika datang dari CHIP dengan ref=chip
+    // Set success URL di CHIP: https://la-labs.my/gajila/terima-kasih?ref=chip
+    if (params.get('ref') === 'chip') {
+      setAllowed(true)
+    } else {
+      router.replace('/gajila')
+    }
+  }, [router])
+
+  if (!allowed) {
+    return (
+      <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc' }}>
+        <div style={{ color: '#9ca3af', fontSize: '14px' }}>Menghala semula...</div>
+      </main>
+    )
+  }
+
   return (
     <main style={{
       minHeight: '100vh', background: '#f8fafc',

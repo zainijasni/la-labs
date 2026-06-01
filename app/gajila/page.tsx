@@ -27,17 +27,17 @@ function Nav() {
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: '#111', borderBottom: '1px solid #222' }}>
       <div style={{ ...wrap, display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <a href="/" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', textDecoration: 'none' }}>← La Labs</a>
-          <div style={{ width: '1px', height: '14px', background: '#333' }} />
-          <div style={{ background: '#222', borderRadius: '8px', padding: '4px 10px', display: 'flex', alignItems: 'center' }}>
-            <img src="/logo-gajila.png" alt="Gajila" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <a href="/" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', textDecoration: 'none', whiteSpace: 'nowrap' }}>← La Labs</a>
+          <div style={{ width: '1px', height: '14px', background: '#333', flexShrink: 0 }} />
+          <div style={{ background: '#222', borderRadius: '8px', padding: '4px 8px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+            <img src="/logo-gajila.png" alt="Gajila" style={{ height: '28px', width: 'auto', objectFit: 'contain' }} />
           </div>
-          <span style={{ padding: '2px 8px', borderRadius: '6px', background: 'rgba(29,111,66,0.3)', color: '#4ade80', fontSize: '11px', fontWeight: 700 }}>Lite v1.0</span>
+          <span className="gajila-badge" style={{ padding: '2px 8px', borderRadius: '6px', background: 'rgba(29,111,66,0.3)', color: '#4ade80', fontSize: '11px', fontWeight: 700, whiteSpace: 'nowrap' }}>Lite v1.0</span>
         </div>
         <a
           href="#beli"
-          style={{ padding: '9px 22px', borderRadius: '8px', background: G, color: 'white', fontWeight: 700, fontSize: '14px', textDecoration: 'none', boxShadow: `0 2px 8px ${G}40` }}
+          style={{ padding: '8px 16px', borderRadius: '8px', background: G, color: 'white', fontWeight: 700, fontSize: '13px', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}
         >
           Beli Sekarang
         </a>
@@ -104,7 +104,7 @@ function Hero() {
                   boxShadow: `0 4px 16px ${G}40`,
                 }}
               >
-                Dapatkan untuk RM 19 →
+                Dapatkan Sekarang →
               </a>
             </div>
 
@@ -539,29 +539,29 @@ function BuySection() {
 /* ── PRO TEASER ──────────────────────────────────────────────────── */
 function ProTeaser() {
   return (
-    <section style={{ background: G3, padding: '56px 0' }}>
-      <div style={{ ...wrap, display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap' }}>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', borderRadius: '999px', background: 'rgba(251,191,36,0.15)', border: '1px solid rgba(251,191,36,0.3)', marginBottom: '12px' }}>
+    <section style={{ background: G3, padding: '40px 0' }}>
+      <div style={{ ...wrap, display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ flex: 1, minWidth: '260px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px', borderRadius: '999px', background: 'rgba(251,191,36,0.15)', border: '1px solid rgba(251,191,36,0.3)', marginBottom: '10px' }}>
             <span style={{ color: '#fbbf24', fontSize: '11px', fontWeight: 700 }}>AKAN DATANG</span>
           </div>
-          <h3 style={{ fontWeight: 800, fontSize: '1.5rem', color: 'white', marginBottom: '8px' }}>
-            <Logo /> Pro — Web Application
+          <h3 style={{ fontWeight: 800, fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', color: 'white', marginBottom: '8px', lineHeight: 1.3 }}>
+            Gajila Pro — Web Application
           </h3>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: 1.7 }}>
-            Versi lebih berkuasa — akses dari mana-mana, multi-user, multi-syarikat, dashboard analytics. Sedang dalam beta testing. Daftar minat untuk dapat akses awal.
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', lineHeight: 1.65, marginBottom: '16px' }}>
+            Akses dari mana-mana, multi-user, multi-syarikat, dashboard analytics. Sedang dalam beta testing.
           </p>
+          <a
+            href="mailto:janamegaglobalmy@gmail.com?subject=Gajila Pro - Daftar Minat"
+            style={{
+              display: 'inline-block', padding: '10px 22px', borderRadius: '8px',
+              background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+              color: 'white', fontWeight: 700, fontSize: '13px', textDecoration: 'none',
+            }}
+          >
+            Daftar Minat →
+          </a>
         </div>
-        <a
-          href="mailto:janamegaglobalmy@gmail.com?subject=Gajila Pro - Daftar Minat"
-          style={{
-            flexShrink: 0, padding: '12px 28px', borderRadius: '10px',
-            background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
-            color: 'white', fontWeight: 700, fontSize: '14px', textDecoration: 'none',
-          }}
-        >
-          Daftar Minat Pro →
-        </a>
       </div>
     </section>
   )
@@ -597,4 +597,5 @@ export default function GajilaPage() {
     </>
   )
 }
+
 
