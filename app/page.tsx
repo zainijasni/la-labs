@@ -3,72 +3,68 @@
 import { useState } from 'react'
 import LaLabsLogo from '@/components/LaLabsLogo'
 
+/* ─── SHARED STYLES ───────────────────────────────────────────────── */
+const container: React.CSSProperties = {
+  maxWidth: '1200px',
+  margin: '0 auto',
+  padding: '0 32px',
+  width: '100%',
+  boxSizing: 'border-box',
+}
+
 /* ─── NAV ─────────────────────────────────────────────────────────── */
 function Nav() {
   const [open, setOpen] = useState(false)
-  const links = ['Produk', 'Tentang Kami', 'Harga', 'Hubungi']
+  const links = ['Produk', 'Tentang Kami', 'Hubungi']
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{ background: '#A8005C', boxShadow: '0 2px 20px rgba(168,0,92,0.4)' }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <LaLabsLogo size={44} />
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      background: '#8B0042', boxShadow: '0 2px 20px rgba(139,0,66,0.5)',
+    }}>
+      <div style={{ ...container, padding: '0 32px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+          <LaLabsLogo size={72} />
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l}
-              href="#"
-              className="text-white/80 hover:text-white font-medium text-sm transition-colors"
-            >
-              {l}
-            </a>
-          ))}
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#produk"
-            className="px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-sm font-medium transition-all border border-white/30"
-          >
-            Lihat Produk
-          </a>
-          <a
-            href="mailto:hello@la-labs.my"
-            className="px-5 py-2.5 rounded-full bg-white text-[#A8005C] text-sm font-bold hover:bg-pink-50 transition-all"
-          >
-            Mulakan Sekarang
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white p-2">
-          <div className="space-y-1.5">
-            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          {/* Desktop links */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="nav-links">
+            {links.map(l => (
+              <a key={l} href="#" style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500, fontSize: '15px', textDecoration: 'none' }}>{l}</a>
+            ))}
           </div>
-        </button>
+
+          {/* Desktop CTA */}
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }} className="nav-cta">
+            <a href="#produk" style={{
+              padding: '8px 20px', borderRadius: '999px',
+              background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
+              color: 'white', fontWeight: 500, fontSize: '14px', textDecoration: 'none',
+            }}>Lihat Produk</a>
+            <a href="mailto:hello@la-labs.my" style={{
+              padding: '8px 20px', borderRadius: '999px',
+              background: 'white', color: '#8B0042', fontWeight: 700, fontSize: '14px', textDecoration: 'none',
+            }}>Hubungi Kami</a>
+          </div>
+
+          {/* Hamburger */}
+          <button onClick={() => setOpen(!open)} className="nav-burger"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'none', flexDirection: 'column', gap: '5px', padding: '4px' }}>
+            {[0, 1, 2].map(i => (
+              <span key={i} style={{ display: 'block', width: '24px', height: '2px', background: 'white', borderRadius: '2px' }} />
+            ))}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden px-6 pb-6 space-y-3" style={{ background: '#A8005C' }}>
-          {links.map((l) => (
-            <a key={l} href="#" className="block text-white/90 font-medium py-2 border-b border-white/10">
-              {l}
-            </a>
+        <div style={{ background: '#8B0042', padding: '16px 32px 24px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          {links.map(l => (
+            <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.9)', fontWeight: 500, padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.08)', textDecoration: 'none' }}>{l}</a>
           ))}
-          <a
-            href="mailto:hello@la-labs.my"
-            className="block mt-4 px-5 py-3 rounded-full bg-white text-[#A8005C] text-center font-bold"
-          >
-            Mulakan Sekarang
-          </a>
+          <a href="mailto:hello@la-labs.my" style={{
+            display: 'block', marginTop: '16px', padding: '12px', borderRadius: '999px',
+            background: 'white', color: '#8B0042', fontWeight: 700, textAlign: 'center', textDecoration: 'none',
+          }}>Hubungi Kami</a>
         </div>
       )}
     </nav>
@@ -78,141 +74,118 @@ function Nav() {
 /* ─── HERO ────────────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section
-      className="relative pt-20 pb-0 min-h-screen flex flex-col justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #7A0042 0%, #A8005C 40%, #D4006E 70%, #E0007A 100%)' }}
-    >
-      {/* Background decoration */}
-      <div
-        className="absolute top-20 right-0 w-96 h-96 rounded-full opacity-10"
-        style={{ background: 'radial-gradient(circle, #FF4FD8, transparent)', filter: 'blur(60px)' }}
-      />
-      <div
-        className="absolute bottom-40 left-10 w-64 h-64 rounded-full opacity-10"
-        style={{ background: 'radial-gradient(circle, #FF4FD8, transparent)', filter: 'blur(40px)' }}
-      />
+    <section style={{
+      background: 'linear-gradient(135deg, #A0004E 0%, #8B0042 50%, #D4006E 100%)',
+      paddingTop: '68px', minHeight: '100vh', position: 'relative',
+      overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+    }}>
+      <div style={{ ...container, padding: '80px 32px 100px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-32 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left: copy */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-white/90 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Kini Tersedia di Malaysia
+          {/* Left */}
+          <div style={{ flex: '1 1 420px', minWidth: 0 }}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '7px 16px', borderRadius: '999px',
+              background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)',
+              color: 'rgba(255,255,255,0.9)', fontSize: '13px', fontWeight: 500, marginBottom: '24px',
+            }}>
+              <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#4ade80', display: 'inline-block' }} />
+              Jana Mega Global · Produk Digital Malaysia
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6">
-              Inovasi Digital{' '}
-              <span className="block text-pink-200">untuk Malaysia</span>
+            <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', fontWeight: 800, color: 'white', lineHeight: 1.1, marginBottom: '20px' }}>
+              Satu Ekosistem.<br />
+              <span style={{ color: '#fbb6ce' }}>Pelbagai Penyelesaian.</span>
             </h1>
 
-            <p className="text-white/75 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-              La Labs membina produk digital bertaraf dunia khusus untuk perniagaan Malaysia —
-              dari sistem penggajian hingga pengurusan pelajar. Satu ekosistem, pelbagai penyelesaian.
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '32px', maxWidth: '480px' }}>
+              La Labs membina produk digital untuk perniagaan Malaysia —
+              dari penggajian, makanan, pendidikan, hingga kewangan.
+              Semua direka untuk mudah digunakan dan berpatutan.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#produk"
-                className="px-8 py-4 rounded-full bg-white text-[#A8005C] font-bold text-lg hover:bg-pink-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              >
-                Terokai Produk
-              </a>
-              <a
-                href="mailto:hello@la-labs.my"
-                className="px-8 py-4 rounded-full bg-white/15 text-white font-semibold text-lg border border-white/30 hover:bg-white/25 transition-all"
-              >
-                Hubungi Kami
-              </a>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '36px' }}>
+              <a href="#produk" style={{
+                padding: '13px 30px', borderRadius: '999px', background: 'white',
+                color: '#8B0042', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+              }}>Terokai Produk Kami</a>
+              <a href="mailto:hello@la-labs.my" style={{
+                padding: '13px 30px', borderRadius: '999px',
+                background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
+                color: 'white', fontWeight: 600, fontSize: '15px', textDecoration: 'none',
+              }}>Hubungi Kami</a>
             </div>
 
-            <div className="mt-10 flex items-center gap-6 text-white/60 text-sm">
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Compliant Malaysia
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Sokongan Bahasa Melayu
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Harga Berpatutan
-              </span>
+            {/* Product pills */}
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              {[
+                { name: 'Gajila', live: true },
+                { name: 'FixLa', live: true },
+                { name: 'MakanLa', live: true },
+                { name: 'StudyLa', live: true },
+                { name: 'DuitLa ✦', live: false },
+              ].map(p => (
+                <span key={p.name} style={{
+                  padding: '5px 14px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
+                  background: p.live ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.07)',
+                  border: `1px solid ${p.live ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)'}`,
+                  color: p.live ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)',
+                }}>{p.name}</span>
+              ))}
             </div>
           </div>
 
-          {/* Right: mockup card */}
-          <div className="hidden md:flex justify-center">
-            <div className="relative">
-              {/* Main card */}
-              <div
-                className="w-80 rounded-3xl p-6 shadow-2xl"
-                style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.2)' }}
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.2)' }}>
-                    <span className="text-white font-bold text-sm">G</span>
+          {/* Right: product showcase card */}
+          <div className="hero-card-col" style={{ flex: '0 0 320px' }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.2)', borderRadius: '24px',
+              padding: '24px', boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+            }}>
+              <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
+                Ekosistem Produk La Labs
+              </div>
+
+              {[
+                { name: 'Gajila', desc: 'Sistem Penggajian Malaysia', logo: '/logo-gajila.png', live: true },
+                { name: 'FixLa', desc: 'Marketplace Servis Tempatan', logo: '/logo-fixla.png', live: true },
+                { name: 'MakanLa', desc: 'Food Discovery & Review App', logo: '/logo-makanla.png', live: true },
+                { name: 'StudyLa', desc: 'Platform Pembelajaran Keluarga', logo: '/logo-studyla.png', live: true },
+                { name: 'DuitLa', desc: 'Pengurusan Kewangan Peribadi', logo: null, live: false },
+              ].map(p => (
+                <div key={p.name} style={{
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  padding: '10px 12px', borderRadius: '12px', marginBottom: '8px',
+                  background: p.live ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+                }}>
+                  <div style={{ width: '40px', height: '40px', flexShrink: 0, borderRadius: '10px', background: '#111', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {p.logo
+                      ? <img src={p.logo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      : <span style={{ fontSize: '18px' }}>💳</span>
+                    }
                   </div>
-                  <div>
-                    <div className="text-white font-bold">GajIla</div>
-                    <div className="text-white/60 text-xs">Sistem Penggajian</div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ color: 'white', fontWeight: 700, fontSize: '14px' }}>{p.name}</div>
+                    <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: '11px' }}>{p.desc}</div>
                   </div>
+                  <span style={{
+                    fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '999px',
+                    background: p.live ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.1)',
+                    color: p.live ? '#4ade80' : 'rgba(255,255,255,0.4)',
+                  }}>{p.live ? 'Live' : 'Soon'}</span>
                 </div>
-
-                <div className="space-y-3 mb-5">
-                  {[
-                    { label: 'KWSP', value: '11%', color: '#4ade80' },
-                    { label: 'SOCSO', value: 'Kategori 1', color: '#60a5fa' },
-                    { label: 'PCB / LHDN', value: 'Auto-kira', color: '#fb923c' },
-                    { label: 'EIS / SIP', value: 'Termasuk', color: '#f472b6' },
-                  ].map((item) => (
-                    <div key={item.label} className="flex justify-between items-center">
-                      <span className="text-white/70 text-sm">{item.label}</span>
-                      <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ background: `${item.color}25`, color: item.color }}>
-                        {item.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-4 border-t border-white/15">
-                  <div className="text-white/50 text-xs mb-1">Gaji Bersih Pekerja</div>
-                  <div className="text-white text-2xl font-extrabold">RM 3,284.50</div>
-                </div>
-              </div>
-
-              {/* Floating badge */}
-              <div
-                className="absolute -top-4 -right-4 px-3 py-1.5 rounded-full text-white text-xs font-bold shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #ff6b35, #ff4fd8)' }}
-              >
-                ✓ Compliant 2025
-              </div>
-
-              {/* Floating stats */}
-              <div
-                className="absolute -bottom-4 -left-6 px-4 py-2 rounded-2xl text-white shadow-lg"
-                style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}
-              >
-                <div className="text-xs text-white/60">Digunakan oleh</div>
-                <div className="font-bold">500+ Syarikat</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Wave transition to white */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white" />
+      {/* Wave */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%' }}>
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white" />
         </svg>
       </div>
     </section>
@@ -222,20 +195,21 @@ function Hero() {
 /* ─── STATS BAR ───────────────────────────────────────────────────── */
 function StatsBar() {
   const stats = [
-    { num: '500+', label: 'Syarikat Aktif' },
-    { num: '4', label: 'Produk Digital' },
-    { num: '99.9%', label: 'Uptime Dijamin' },
+    { num: '5', label: 'Produk Digital' },
+    { num: '4', label: 'Produk Live Sekarang' },
+    { num: '100%', label: 'Made in Malaysia' },
     { num: '2024', label: 'Ditubuhkan' },
   ]
-
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((s) => (
+    <section style={{ background: 'white', padding: '56px 0' }}>
+      <div style={container}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }} className="stats-grid">
+          {stats.map(s => (
             <div key={s.label}>
-              <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-2">{s.num}</div>
-              <div className="text-gray-500 text-sm font-medium">{s.label}</div>
+              <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, background: 'linear-gradient(135deg, #8B0042, #E0007A, #FF4FD8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: '6px' }}>
+                {s.num}
+              </div>
+              <div style={{ color: '#6b7280', fontSize: '14px', fontWeight: 500 }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -248,118 +222,104 @@ function StatsBar() {
 function ProductsGrid() {
   const products = [
     {
-      name: 'GajIla',
+      name: 'Gajila',
       tagline: 'Gaji selesai, kerja senang.',
-      desc: 'Sistem penggajian Malaysia lengkap — KWSP, SOCSO, PCB, EIS dalam satu platform. Tersedia dalam format Excel (Lite) dan Web App (Pro).',
-      icon: '💰',
-      featured: true,
-      badge: 'Produk Utama',
-      color: '#1D6F42',
-      bgColor: '#E8F5EE',
-      href: '/gajila',
+      desc: 'Sistem penggajian Malaysia yang lengkap — KWSP, SOCSO, PCB, EIS, HRDF dan Zakat dikira secara automatik. Tersedia dalam format Excel (Lite) untuk SME dan Web App (Pro) untuk syarikat yang lebih besar.',
+      logo: '/logo-gajila.png', color: '#1D6F42', bg: '#E8F5EE', live: true,
+      url: '/gajila',
     },
     {
       name: 'FixLa',
-      tagline: 'Penyelenggaraan tanpa kerumitan.',
-      desc: 'Sistem pengurusan aduan dan penyelenggaraan fasiliti. Ideal untuk pejabat, sekolah, dan premis komersial.',
-      icon: '🔧',
-      featured: false,
-      badge: 'Akan Datang',
-      color: '#1860A8',
-      bgColor: '#EEF3FA',
-      href: '#',
+      tagline: 'Cari servis, selesai masalah.',
+      desc: 'Marketplace yang menghubungkan pelanggan dengan service provider tempatan — tukang elektrik, aircond, plumbing, IT, dan banyak lagi. Post kerja, terima bid, pilih terbaik.',
+      logo: '/logo-fixla.png', color: '#1D9E75', bg: '#E6F7F3', live: true,
+      url: 'https://fixla.my',
+    },
+    {
+      name: 'MakanLa',
+      tagline: 'Jejak Selera Kau.',
+      desc: 'App food discovery Malaysia yang bantu kau decide nak makan apa. Explore kedai berdekatan, rate & review, jana Review Card viral, dan simpan Foodie Map perjalanan makan kau.',
+      logo: '/logo-makanla.png', color: '#E05A00', bg: '#FFF3E8', live: true,
+      url: '#',
     },
     {
       name: 'StudyLa',
-      tagline: 'Belajar jadi lebih mudah.',
-      desc: 'Platform pengurusan pelajar dan pembelajaran digital. Rekod kehadiran, markah, dan komunikasi ibu bapa dalam satu tempat.',
-      icon: '📚',
-      featured: false,
-      badge: 'Akan Datang',
-      color: '#7B3FA8',
-      bgColor: '#F3EEF9',
-      href: '#',
+      tagline: 'Faham dulu, baru jawab.',
+      desc: 'Platform pembelajaran keluarga dengan Kaedah 3 Lapisan — bimbing anak Tahun 1–5 memahami sebelum menjawab. Soalan dijana AI mengikut kurikulum KSSR Semakan 2017.',
+      logo: '/logo-studyla.png', color: '#7B3FA8', bg: '#F3EEF9', live: true,
+      url: '/studyla',
     },
     {
-      name: 'StokLa',
-      tagline: 'Inventori dalam genggaman.',
-      desc: 'Pengurusan stok dan inventori ringkas untuk perniagaan kecil. Tak perlu software mahal — semua di telefon anda.',
-      icon: '📦',
-      featured: false,
-      badge: 'Akan Datang',
-      color: '#A85C00',
-      bgColor: '#FBF3EE',
-      href: '#',
+      name: 'DuitLa',
+      tagline: 'Duit terurus, hidup tenang.',
+      desc: 'Aplikasi pengurusan kewangan peribadi untuk orang Malaysia — pantau perbelanjaan, tetapkan bajet, dan capai matlamat kewangan dengan mudah.',
+      logo: null, color: '#0A7A6E', bg: '#E6F7F5', live: false,
+      url: '#',
     },
   ]
 
   return (
-    <section id="produk" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-50 text-[#A8005C] text-sm font-semibold mb-4">
-            Ekosistem Produk
+    <section id="produk" style={{ background: 'white', padding: '80px 0' }}>
+      <div style={container}>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '999px', background: '#fce7f3', color: '#8B0042', fontSize: '13px', fontWeight: 600, marginBottom: '16px' }}>
+            Ekosistem Produk La Labs
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800, color: '#111', marginBottom: '16px', lineHeight: 1.2 }}>
             Semua yang Perniagaan Anda Perlukan
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Produk digital La Labs direka khas untuk keperluan perniagaan Malaysia —
-            mudah, berpatutan, dan compliant dengan peraturan tempatan.
+          <p style={{ color: '#6b7280', fontSize: '1.05rem', maxWidth: '560px', margin: '0 auto', lineHeight: 1.7 }}>
+            Dari penggajian hingga POS restoran — La Labs membina penyelesaian digital untuk setiap aspek perniagaan Malaysia.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((p) => (
-            <a
-              key={p.name}
-              href={p.href}
-              className={`group block rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-xl ${
-                p.featured
-                  ? 'ring-2 ring-[#A8005C] shadow-lg'
-                  : 'border border-gray-100 hover:border-gray-200'
-              }`}
-              style={{ background: p.featured ? 'linear-gradient(145deg, #fff, #fdf0f6)' : 'white' }}
-            >
-              {p.featured && (
-                <div className="mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold text-white" style={{ background: '#A8005C' }}>
-                    {p.badge}
-                  </span>
-                </div>
-              )}
-              {!p.featured && (
-                <div className="mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ background: p.bgColor, color: p.color }}>
-                    {p.badge}
-                  </span>
-                </div>
-              )}
-
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4"
-                style={{ background: p.bgColor }}
-              >
-                {p.icon}
-              </div>
-
-              <h3 className="text-xl font-extrabold text-gray-900 mb-1">{p.name}</h3>
-              <p className="text-sm font-medium mb-3" style={{ color: p.color }}>{p.tagline}</p>
-              <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
-
-              {p.href !== '#' && (
-                <div className="mt-4 flex items-center gap-1 text-sm font-semibold" style={{ color: '#A8005C' }}>
-                  Ketahui lebih lanjut
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              )}
-            </a>
-          ))}
+        {/* Grid: 3 top + 2 bottom centered */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '24px' }} className="products-top">
+          {products.slice(0, 3).map(p => <ProductCard key={p.name} p={p} />)}
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', maxWidth: '800px', margin: '0 auto' }} className="products-bottom">
+          {products.slice(3).map(p => <ProductCard key={p.name} p={p} />)}
         </div>
       </div>
     </section>
+  )
+}
+
+function ProductCard({ p }: { p: { name: string; tagline: string; desc: string; logo: string | null; color: string; bg: string; live: boolean; url: string } }) {
+  return (
+    <div style={{
+      borderRadius: '20px', padding: '28px',
+      border: `1.5px solid ${p.live ? p.color + '25' : '#f0f0f0'}`,
+      background: p.live ? `linear-gradient(145deg, white, ${p.bg}60)` : 'white',
+      boxShadow: p.live ? `0 4px 24px ${p.color}12` : 'none',
+      display: 'flex', flexDirection: 'column', gap: 0,
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+        {/* Logo icon — black bg, logo atas */}
+        <div style={{ width: '72px', height: '72px', borderRadius: '18px', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
+          {p.logo
+            ? <img src={p.logo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            : <span style={{ fontSize: '32px' }}>💳</span>
+          }
+        </div>
+        <span style={{
+          fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '999px',
+          background: p.live ? '#dcfce7' : '#f3f4f6', color: p.live ? '#15803d' : '#9ca3af',
+        }}>{p.live ? '● Live' : '○ Akan Datang'}</span>
+      </div>
+      <div style={{ fontWeight: 800, fontSize: '19px', color: '#111', marginBottom: '4px' }}>{p.name}</div>
+      <div style={{ fontWeight: 600, fontSize: '13px', color: p.color, marginBottom: '12px' }}>{p.tagline}</div>
+      <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.7, flex: 1 }}>{p.desc}</p>
+      {p.live && p.url !== '#' && (
+        <a href={p.url} target={p.url.startsWith('/') ? '_self' : '_blank'} rel="noopener noreferrer" style={{
+          display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '16px',
+          fontSize: '13px', fontWeight: 700, color: p.color, textDecoration: 'none',
+        }}>
+          Lawati {p.name} →
+        </a>
+      )}
+    </div>
   )
 }
 
@@ -367,60 +327,55 @@ function ProductsGrid() {
 function WhyLaLabs() {
   const reasons = [
     {
-      icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      title: 'Compliant 100%',
-      desc: 'Semua produk kami mematuhi peraturan Malaysia terkini — KWSP, SOCSO, LHDN, dan undang-undang buruh. Kemaskini automatik apabila kadar berubah.',
+      icon: '🛡️',
+      title: 'Compliant Malaysia',
+      desc: 'Semua produk mematuhi peraturan Malaysia — KWSP, LHDN, MDTCC, dan lain-lain. Kemaskini automatik mengikut perubahan kadar terkini.',
     },
     {
-      icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: 'Mudah & Pantas',
-      desc: 'Antara muka yang intuitif dalam Bahasa Melayu. Pekerja baru pun boleh guna tanpa latihan panjang. Setup dalam masa kurang dari 30 minit.',
+      icon: '🇲🇾',
+      title: 'Dibina untuk Malaysia',
+      desc: 'Bukan sekadar terjemahan produk luar negara. La Labs direka dari awal memahami keperluan, bahasa, dan budaya perniagaan Malaysia.',
     },
     {
-      icon: (
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      icon: '💡',
+      title: 'Mudah Digunakan',
+      desc: 'Antara muka dalam Bahasa Melayu, intuitif, dan tidak memerlukan latihan panjang. Sesuai untuk semua peringkat pengguna.',
+    },
+    {
+      icon: '💰',
       title: 'Harga untuk SME',
-      desc: 'Kami faham bajet SME. Harga kami direka supaya perniagaan kecil pun mampu guna teknologi terbaik tanpa membebankan cashflow.',
+      desc: 'Harga yang berpatutan untuk perniagaan kecil dan sederhana. Tidak perlu bajet besar untuk guna teknologi terbaik.',
+    },
+    {
+      icon: '🔗',
+      title: 'Ekosistem Bersepadu',
+      desc: 'Semua produk La Labs direka untuk berfungsi bersama. Data mengalir antara sistem tanpa perlu input manual berulang.',
+    },
+    {
+      icon: '📞',
+      title: 'Sokongan Tempatan',
+      desc: 'Tim sokongan Malaysia yang memahami keperluan anda. Respons pantas dalam Bahasa Melayu dan English.',
     },
   ]
 
   return (
-    <section className="py-20" style={{ background: 'linear-gradient(180deg, #fff 0%, #fdf0f6 100%)' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-100 text-[#A8005C] text-sm font-semibold mb-4">
+    <section style={{ background: 'linear-gradient(180deg, white 0%, #fdf0f6 100%)', padding: '80px 0' }}>
+      <div style={container}>
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <div style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '999px', background: '#fce7f3', color: '#8B0042', fontSize: '13px', fontWeight: 600, marginBottom: '16px' }}>
             Kenapa La Labs?
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800, color: '#111', lineHeight: 1.2 }}>
             Dibina untuk Malaysia,<br />bukan copy-paste dari luar
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {reasons.map((r) => (
-            <div
-              key={r.title}
-              className="rounded-3xl p-8 bg-white shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: 'linear-gradient(135deg, #A8005C, #E0007A)', color: 'white' }}
-              >
-                {r.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{r.title}</h3>
-              <p className="text-gray-500 leading-relaxed">{r.desc}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="why-grid">
+          {reasons.map(r => (
+            <div key={r.title} style={{ background: 'white', borderRadius: '20px', padding: '28px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+              <div style={{ fontSize: '32px', marginBottom: '14px' }}>{r.icon}</div>
+              <div style={{ fontWeight: 700, fontSize: '17px', color: '#111', marginBottom: '10px' }}>{r.title}</div>
+              <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.65 }}>{r.desc}</p>
             </div>
           ))}
         </div>
@@ -429,194 +384,51 @@ function WhyLaLabs() {
   )
 }
 
-/* ─── PRODUCT SHOWCASE ────────────────────────────────────────────── */
-function ProductShowcase() {
+/* ─── ABOUT ───────────────────────────────────────────────────────── */
+function About() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* GajIla showcase — image right */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-6" style={{ background: '#E8F5EE', color: '#1D6F42' }}>
-              GajIla — Produk Utama
+    <section style={{ background: 'white', padding: '80px 0' }}>
+      <div style={container}>
+        <div style={{ display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap' }}>
+          {/* Left */}
+          <div style={{ flex: '1 1 380px', minWidth: 0 }}>
+            <div style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '999px', background: '#fce7f3', color: '#8B0042', fontSize: '13px', fontWeight: 600, marginBottom: '20px' }}>
+              Tentang La Labs
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-5 leading-tight">
-              Payroll Malaysia yang{' '}
-              <span className="gradient-text">Benar-benar Faham</span>{' '}
-              Keperluan Anda
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, color: '#111', lineHeight: 1.2, marginBottom: '20px' }}>
+              Inovasi Digital<br />dari Malaysia,<br />untuk Malaysia
             </h2>
-            <p className="text-gray-500 text-lg leading-relaxed mb-6">
-              GajIla bukan sekadar kalkulator gaji. Ia adalah sistem pengurusan penggajian
-              lengkap yang mengurus semua statutory Malaysia — KWSP, SOCSO, EIS, PCB, HRDF,
-              dan Zakat — secara automatik.
+            <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: 1.8, marginBottom: '16px' }}>
+              La Labs adalah jenama produk digital di bawah <strong>Jana Mega Global</strong> — sebuah syarikat teknologi Malaysia yang membina penyelesaian digital berkualiti tinggi untuk pasaran tempatan.
             </p>
-
-            <div className="space-y-3 mb-8">
-              {[
-                'Slip gaji automatik dalam PDF',
-                'Laporan KWSP Borang A & SOCSO Borang 8A',
-                'Pengiraan PCB berdasarkan jadual LHDN terkini',
-                'Sokongan untuk pekerja kontrak & tetap',
-                'Multi-syarikat dalam satu lesen',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: '#1D6F42' }}
-                  >
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="/gajila"
-                className="px-6 py-3 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #A8005C, #E0007A)' }}
-              >
-                Cuba GajIla Sekarang
-              </a>
-              <a
-                href="/gajila#harga"
-                className="px-6 py-3 rounded-full font-semibold border-2 border-[#A8005C] text-[#A8005C] hover:bg-pink-50 transition-all"
-              >
-                Lihat Harga
-              </a>
-            </div>
+            <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: 1.8, marginBottom: '28px' }}>
+              Dari sistem penggajian (<strong>Gajila</strong>), marketplace servis (<strong>FixLa</strong>), food discovery (<strong>MakanLa</strong>), hingga platform pembelajaran keluarga (<strong>StudyLa</strong>) — setiap produk kami direka khas untuk keperluan Malaysia.
+            </p>
+            <a href="mailto:hello@la-labs.my" style={{
+              display: 'inline-block', padding: '13px 28px', borderRadius: '999px',
+              background: 'linear-gradient(135deg, #8B0042, #E0007A)',
+              color: 'white', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+            }}>
+              Berkolaborasi dengan Kami
+            </a>
           </div>
 
-          {/* Mockup UI */}
-          <div className="relative">
-            <div
-              className="rounded-3xl p-8 shadow-2xl"
-              style={{ background: 'linear-gradient(145deg, #1a1a2e, #16213e)' }}
-            >
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-                <div className="ml-auto text-white/40 text-xs font-mono">GajIla Pro</div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/60 text-sm">Nama Pekerja</span>
-                  <span className="text-white font-semibold">Ahmad Farid</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/60 text-sm">Gaji Pokok</span>
-                  <span className="text-white font-semibold">RM 4,000.00</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/60 text-sm">KWSP (11%)</span>
-                  <span className="text-red-400 font-semibold">- RM 440.00</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/60 text-sm">SOCSO</span>
-                  <span className="text-red-400 font-semibold">- RM 19.75</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/60 text-sm">PCB / LHDN</span>
-                  <span className="text-red-400 font-semibold">- RM 255.75</span>
-                </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="text-white font-bold">Gaji Bersih</span>
-                  <span className="text-2xl font-extrabold" style={{ color: '#4ade80' }}>RM 3,284.50</span>
-                </div>
-              </div>
-
-              <button
-                className="mt-6 w-full py-3 rounded-xl font-bold text-white text-sm"
-                style={{ background: 'linear-gradient(135deg, #A8005C, #E0007A)' }}
-              >
-                Jana Slip Gaji PDF
-              </button>
-            </div>
-
-            <div
-              className="absolute -bottom-4 -right-4 px-4 py-2 rounded-2xl text-xs font-semibold text-white shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #A8005C, #FF4FD8)' }}
-            >
-              Kadar KWSP & PCB 2025 ✓
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── TESTIMONIALS ────────────────────────────────────────────────── */
-function Testimonials() {
-  const testimonials = [
-    {
-      name: 'Zulkifli Hashim',
-      role: 'Pengurus HR, Syarikat Pembinaan Maju Jaya',
-      avatar: 'ZH',
-      text: 'GajIla dah jimatkan kami berjam-jam kerja setiap bulan. Pengiraan KWSP dan PCB yang dulu buat kepala pening, sekarang semua auto. Harga pun berpatutan untuk SME macam kami.',
-    },
-    {
-      name: 'Norliza Abdul Rahman',
-      role: 'Pemilik, NL Trading & Logistics',
-      avatar: 'NR',
-      text: 'Sebelum ni guna spreadsheet biasa, selalu silap kira SOCSO. Lepas guna GajIla Lite, semua kira sendiri. Slip gaji pun nampak professional. Pekerja pun puas hati.',
-    },
-    {
-      name: 'Mohd Hafiz Ismail',
-      role: 'Akauntan, Firma KAF Associates',
-      avatar: 'MH',
-      text: 'Kami urus payroll untuk 12 syarikat klien. La Labs faham keperluan kami — multi-syarikat, laporan statutory, semua ada. Support team pun cepat respons bila ada soalan.',
-    },
-  ]
-
-  return (
-    <section className="py-20" style={{ background: '#fdf0f6' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#A8005C] text-sm font-semibold mb-4 shadow-sm">
-            Testimoni Pelanggan
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-            Apa Kata Mereka
-          </h2>
-          <p className="text-gray-500 text-lg">Ratusan perniagaan Malaysia sudah mempercayai La Labs.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="bg-white rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4" fill="#A8005C" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-
-              <p className="text-gray-600 leading-relaxed mb-5 italic">"{t.text}"</p>
-
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #A8005C, #E0007A)' }}
-                >
-                  {t.avatar}
-                </div>
+          {/* Right: mission cards */}
+          <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {[
+              { title: 'Visi Kami', text: 'Menjadi ekosistem produk digital nombor 1 untuk perniagaan Malaysia menjelang 2027.', icon: '🎯' },
+              { title: 'Misi Kami', text: 'Membangunkan produk digital yang mudah, berpatutan, dan benar-benar menyelesaikan masalah sebenar perniagaan Malaysia.', icon: '🚀' },
+              { title: 'Nilai Kami', text: 'Integriti, inovasi berterusan, dan obsesi terhadap pengalaman pengguna yang terbaik.', icon: '💎' },
+            ].map(item => (
+              <div key={item.title} style={{ display: 'flex', gap: '16px', padding: '20px', borderRadius: '16px', background: '#fdf0f6', border: '1px solid #fce7f3' }}>
+                <span style={{ fontSize: '24px', flexShrink: 0 }}>{item.icon}</span>
                 <div>
-                  <div className="font-bold text-gray-900 text-sm">{t.name}</div>
-                  <div className="text-gray-400 text-xs">{t.role}</div>
+                  <div style={{ fontWeight: 700, color: '#8B0042', marginBottom: '6px', fontSize: '15px' }}>{item.title}</div>
+                  <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.6 }}>{item.text}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -626,41 +438,31 @@ function Testimonials() {
 /* ─── CTA ─────────────────────────────────────────────────────────── */
 function CTA() {
   return (
-    <section
-      className="py-24 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #A8005C, #E0007A, #FF4FD8)' }}
-    >
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-1/4 w-64 h-64 rounded-full bg-white blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-48 h-48 rounded-full bg-white blur-2xl" />
-      </div>
-
-      <div className="max-w-3xl mx-auto px-6 text-center relative">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+    <section style={{
+      background: 'linear-gradient(135deg, #8B0042, #E0007A, #FF4FD8)',
+      padding: '80px 0', position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ ...container, textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 3rem)', fontWeight: 800, color: 'white', marginBottom: '16px', lineHeight: 1.2 }}>
           Sedia Mulakan Transformasi Digital?
         </h2>
-        <p className="text-white/80 text-lg mb-10">
-          Sertai ratusan perniagaan Malaysia yang sudah gunakan La Labs.
-          Cuba percuma selama 30 hari — tiada kad kredit diperlukan.
+        <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px' }}>
+          Hubungi kami hari ini dan ketahui bagaimana La Labs boleh membantu perniagaan anda berkembang.
         </p>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="mailto:hello@la-labs.my"
-            className="px-8 py-4 rounded-full bg-white text-[#A8005C] font-bold text-lg hover:bg-pink-50 transition-all shadow-xl hover:-translate-y-0.5"
-          >
-            Cuba Percuma 30 Hari
-          </a>
-          <a
-            href="https://wa.me/601112345678"
-            className="px-8 py-4 rounded-full bg-white/15 text-white font-semibold text-lg border border-white/30 hover:bg-white/25 transition-all"
-          >
-            WhatsApp Kami
-          </a>
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="mailto:hello@la-labs.my" style={{
+            padding: '14px 32px', borderRadius: '999px', background: 'white',
+            color: '#8B0042', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+          }}>Hubungi Kami Sekarang</a>
+          <a href="https://wa.me/601112345678" style={{
+            padding: '14px 32px', borderRadius: '999px',
+            background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
+            color: 'white', fontWeight: 600, fontSize: '15px', textDecoration: 'none',
+          }}>WhatsApp Kami</a>
         </div>
-
-        <p className="text-white/50 text-sm mt-6">
-          Tiada kontrak jangka panjang · Boleh batal bila-bila masa · Sokongan dalam Bahasa Melayu
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginTop: '24px' }}>
+          Tiada kontrak jangka panjang · Sokongan penuh dalam Bahasa Melayu
         </p>
       </div>
     </section>
@@ -670,28 +472,35 @@ function CTA() {
 /* ─── FOOTER ──────────────────────────────────────────────────────── */
 function Footer() {
   return (
-    <footer style={{ background: '#0f0f0f' }} className="text-gray-400">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+    <footer style={{ background: '#0f0f0f', color: '#9ca3af' }}>
+      <div style={{ ...container, padding: '64px 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '48px', marginBottom: '48px' }} className="footer-grid">
           {/* Brand */}
           <div>
-            <LaLabsLogo size={40} />
-            <p className="mt-4 text-gray-500 text-sm leading-relaxed">
+            <LaLabsLogo size={38} />
+            <p style={{ marginTop: '16px', color: '#6b7280', fontSize: '14px', lineHeight: 1.7 }}>
               La Labs adalah jenama produk digital di bawah Jana Mega Global.
               Kami membina penyelesaian teknologi untuk perniagaan Malaysia.
             </p>
-            <p className="mt-3 text-gray-600 text-xs">
-              © 2025 Jana Mega Global. Hak cipta terpelihara.
-            </p>
+            <p style={{ marginTop: '12px', color: '#4b5563', fontSize: '12px' }}>© 2025 Jana Mega Global. Hak cipta terpelihara.</p>
+            <p style={{ marginTop: '4px', color: '#374151', fontSize: '12px', fontStyle: 'italic' }}>la-labs.my</p>
           </div>
 
           {/* Produk */}
           <div>
-            <h4 className="text-white font-bold mb-4">Produk</h4>
-            <ul className="space-y-2 text-sm">
-              {['GajIla Lite', 'GajIla Pro', 'FixLa (Akan Datang)', 'StudyLa (Akan Datang)', 'StokLa (Akan Datang)'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">{item}</a>
+            <h4 style={{ color: 'white', fontWeight: 700, marginBottom: '16px', fontSize: '15px' }}>Produk</h4>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px' }}>
+              {[
+                { name: 'Gajila — Sistem Penggajian', live: true },
+                { name: 'FixLa — Marketplace Servis', live: true },
+                { name: 'MakanLa — Food Discovery', live: true },
+                { name: 'StudyLa — Platform Pembelajaran', live: true },
+                { name: 'DuitLa — Kewangan Peribadi', live: false },
+              ].map(item => (
+                <li key={item.name}>
+                  <a href="#" style={{ color: item.live ? '#9ca3af' : '#6b7280', textDecoration: 'none' }}>
+                    {item.name} {!item.live && <span style={{ color: '#4b5563', fontSize: '11px' }}>(Akan Datang)</span>}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -699,44 +508,28 @@ function Footer() {
 
           {/* Hubungi */}
           <div>
-            <h4 className="text-white font-bold mb-4">Hubungi Kami</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                hello@la-labs.my
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                +60 11-1234 5678
-              </li>
-              <li className="text-gray-600 text-xs mt-4">
-                Isnin – Jumaat<br />9:00 pagi – 6:00 petang
-              </li>
-            </ul>
-
-            <div className="flex gap-3 mt-6">
-              {['Facebook', 'Instagram', 'LinkedIn'].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs transition-colors"
-                >
-                  {s}
-                </a>
+            <h4 style={{ color: 'white', fontWeight: 700, marginBottom: '16px', fontSize: '15px' }}>Hubungi Kami</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
+              <div>📧 hello@la-labs.my</div>
+              <div>📱 +60 11-1234 5678</div>
+              <div style={{ color: '#6b7280', fontSize: '12px', marginTop: '8px' }}>Isnin – Jumaat · 9 pagi – 6 petang</div>
+            </div>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+              {['Facebook', 'Instagram', 'LinkedIn'].map(s => (
+                <a key={s} href="#" style={{
+                  padding: '6px 12px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)',
+                  color: '#9ca3af', fontSize: '12px', textDecoration: 'none',
+                }}>{s}</a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-          <div>Produk La Labs | Jana Mega Global SDN BHD</div>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-gray-400 transition-colors">Dasar Privasi</a>
-            <a href="#" className="hover:text-gray-400 transition-colors">Terma Penggunaan</a>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', fontSize: '12px', color: '#4b5563' }}>
+          <div>La Labs · Jana Mega Global</div>
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <a href="#" style={{ color: '#4b5563', textDecoration: 'none' }}>Dasar Privasi</a>
+            <a href="#" style={{ color: '#4b5563', textDecoration: 'none' }}>Terma Penggunaan</a>
           </div>
         </div>
       </div>
@@ -744,7 +537,7 @@ function Footer() {
   )
 }
 
-/* ─── MAIN PAGE ───────────────────────────────────────────────────── */
+/* ─── MAIN ────────────────────────────────────────────────────────── */
 export default function Home() {
   return (
     <>
@@ -754,8 +547,7 @@ export default function Home() {
         <StatsBar />
         <ProductsGrid />
         <WhyLaLabs />
-        <ProductShowcase />
-        <Testimonials />
+        <About />
         <CTA />
       </main>
       <Footer />
