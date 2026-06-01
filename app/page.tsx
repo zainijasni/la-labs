@@ -511,16 +511,8 @@ function Footer() {
             <h4 style={{ color: 'white', fontWeight: 700, marginBottom: '16px', fontSize: '15px' }}>Hubungi Kami</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
               <div>📧 janamegaglobalmy@gmail.com</div>
-              <div>📱 +60 11-1234 5678</div>
+              <div>📱 +60 17-586 6188</div>
               <div style={{ color: '#6b7280', fontSize: '12px', marginTop: '8px' }}>Isnin – Jumaat · 9 pagi – 6 petang</div>
-            </div>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-              {['Facebook', 'Instagram', 'LinkedIn'].map(s => (
-                <a key={s} href="#" style={{
-                  padding: '6px 12px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)',
-                  color: '#9ca3af', fontSize: '12px', textDecoration: 'none',
-                }}>{s}</a>
-              ))}
             </div>
           </div>
         </div>
