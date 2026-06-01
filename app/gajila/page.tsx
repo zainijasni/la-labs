@@ -51,7 +51,7 @@ function Hero() {
   return (
     <section style={{ paddingTop: '60px', background: 'white' }}>
       <div style={{ ...wrap, padding: '64px 32px 56px' }}>
-        <div style={{ display: 'flex', gap: '56px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
 
           {/* Left */}
           <div style={{ flex: '1 1 380px', minWidth: 0 }}>
@@ -210,7 +210,7 @@ function SlipPreview() {
   return (
     <section style={{ background: 'white', padding: '72px 0' }}>
       <div style={wrap}>
-        <div style={{ display: 'flex', gap: '56px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           {/* Left copy */}
           <div style={{ flex: '1 1 320px', minWidth: 0 }}>
             <div style={{ display: 'inline-block', padding: '5px 12px', borderRadius: '999px', background: G2, color: G, fontSize: '12px', fontWeight: 600, marginBottom: '16px' }}>
@@ -238,7 +238,7 @@ function SlipPreview() {
           </div>
 
           {/* Slip mockup */}
-          <div style={{ flex: '1 1 340px', minWidth: 0 }}>
+          <div style={{ flex: '1 1 300px', minWidth: 0, overflowX: 'auto' }}>
             <div style={{ borderRadius: '14px', border: '1.5px solid #e5e7eb', overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.08)', background: 'white' }}>
               {/* Header */}
               <div style={{ background: '#f0f4f8', padding: '14px 20px', borderBottom: '2px solid #1D6F42', textAlign: 'center' }}>
@@ -305,10 +305,10 @@ function PayrollPreview() {
   return (
     <section style={{ background: '#f8fafc', padding: '72px 0' }}>
       <div style={wrap}>
-        <div style={{ display: 'flex', gap: '56px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           {/* Payroll sheet mockup */}
-          <div style={{ flex: '1 1 380px', minWidth: 0 }}>
-            <div style={{ borderRadius: '14px', border: '1.5px solid #e5e7eb', overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+          <div style={{ flex: '1 1 300px', minWidth: 0, overflowX: 'auto' }}>
+            <div style={{ borderRadius: '14px', border: '1.5px solid #e5e7eb', overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.08)', minWidth: '480px' }}>
               <div style={{ background: G, padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ color: 'white', fontWeight: 700, fontSize: '13px' }}>Payroll — Input Bulanan</span>
                 <div style={{ display: 'flex', gap: '8px' }}>
@@ -464,7 +464,7 @@ function BuySection() {
 
             {/* CHIP payment button */}
             <a
-              href="https://checkout.chip-in.asia/p/Gajila-lite"
+              href="https://pay.chip-in.asia/gajilalite"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -525,7 +525,7 @@ function BuySection() {
             <div style={{ marginTop: '28px', padding: '16px 20px', borderRadius: '12px', background: G2, border: `1px solid ${G}20` }}>
               <div style={{ fontWeight: 700, color: G, fontSize: '14px', marginBottom: '6px' }}>Ada soalan lain?</div>
               <div style={{ color: '#6b7280', fontSize: '13px', marginBottom: '12px' }}>Kami sedia membantu anda sebelum membeli.</div>
-              <a href="https://wa.me/601112345678?text=Saya nak tanya pasal Gajila Lite" style={{ display: 'inline-block', padding: '9px 20px', borderRadius: '8px', background: '#25D366', color: 'white', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>
+              <a href="https://wa.me/60175866188?text=Saya nak tanya pasal Gajila Lite" style={{ display: 'inline-block', padding: '9px 20px', borderRadius: '8px', background: '#25D366', color: 'white', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>
                 WhatsApp Kami
               </a>
             </div>
@@ -553,7 +553,7 @@ function ProTeaser() {
           </p>
         </div>
         <a
-          href="mailto:hello@la-labs.my?subject=Gajila Pro - Daftar Minat"
+          href="mailto:janamegaglobalmy@gmail.com?subject=Gajila Pro - Daftar Minat"
           style={{
             flexShrink: 0, padding: '12px 28px', borderRadius: '10px',
             background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
@@ -597,3 +597,4 @@ export default function GajilaPage() {
     </>
   )
 }
+

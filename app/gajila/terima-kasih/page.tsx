@@ -134,7 +134,7 @@ export default function TerimaKasih() {
           </div>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="https://wa.me/601112345678?text=Saya baru beli Gajila Lite, boleh tolong approve akses download saya?"
+              href="https://wa.me/60175866188?text=Saya baru beli Gajila Lite, boleh tolong approve akses download saya?"
               target="_blank"
               rel="noopener noreferrer"
               style={{ padding: '8px 18px', borderRadius: '8px', background: '#25D366', color: 'white', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}
@@ -142,7 +142,7 @@ export default function TerimaKasih() {
               WhatsApp Kami
             </a>
             <a
-              href="mailto:hello@la-labs.my?subject=Gajila Lite - Minta Akses Download"
+              href="mailto:janamegaglobalmy@gmail.com?subject=Gajila Lite - Minta Akses Download"
               style={{ padding: '8px 18px', borderRadius: '8px', background: '#f0f0f0', color: '#374151', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}
             >
               Email Kami

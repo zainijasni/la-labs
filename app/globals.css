@@ -58,6 +58,20 @@ body {
   .subjects-grid { grid-template-columns: 1fr !important; }
 }
 
+/* Gajila mobile fixes */
+@media (max-width: 767px) {
+  .lite-features { grid-template-columns: 1fr !important; }
+  .pro-features { grid-template-columns: 1fr !important; }
+  .tabs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .persona-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Global mobile padding */
+@media (max-width: 480px) {
+  section { padding-left: 0 !important; padding-right: 0 !important; }
+  section > div { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
 .wave-bottom {
   position: relative;
 }

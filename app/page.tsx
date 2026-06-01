@@ -40,7 +40,7 @@ function Nav() {
               background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
               color: 'white', fontWeight: 500, fontSize: '14px', textDecoration: 'none',
             }}>Lihat Produk</a>
-            <a href="mailto:hello@la-labs.my" style={{
+            <a href="mailto:janamegaglobalmy@gmail.com" style={{
               padding: '8px 20px', borderRadius: '999px',
               background: 'white', color: '#8B0042', fontWeight: 700, fontSize: '14px', textDecoration: 'none',
             }}>Hubungi Kami</a>
@@ -61,7 +61,7 @@ function Nav() {
           {links.map(l => (
             <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.9)', fontWeight: 500, padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.08)', textDecoration: 'none' }}>{l}</a>
           ))}
-          <a href="mailto:hello@la-labs.my" style={{
+          <a href="mailto:janamegaglobalmy@gmail.com" style={{
             display: 'block', marginTop: '16px', padding: '12px', borderRadius: '999px',
             background: 'white', color: '#8B0042', fontWeight: 700, textAlign: 'center', textDecoration: 'none',
           }}>Hubungi Kami</a>
@@ -111,7 +111,7 @@ function Hero() {
                 color: '#8B0042', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
               }}>Terokai Produk Kami</a>
-              <a href="mailto:hello@la-labs.my" style={{
+              <a href="mailto:janamegaglobalmy@gmail.com" style={{
                 padding: '13px 30px', borderRadius: '999px',
                 background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
                 color: 'white', fontWeight: 600, fontSize: '15px', textDecoration: 'none',
@@ -404,7 +404,7 @@ function About() {
             <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: 1.8, marginBottom: '28px' }}>
               Dari sistem penggajian (<strong>Gajila</strong>), marketplace servis (<strong>FixLa</strong>), food discovery (<strong>MakanLa</strong>), hingga platform pembelajaran keluarga (<strong>StudyLa</strong>) — setiap produk kami direka khas untuk keperluan Malaysia.
             </p>
-            <a href="mailto:hello@la-labs.my" style={{
+            <a href="mailto:janamegaglobalmy@gmail.com" style={{
               display: 'inline-block', padding: '13px 28px', borderRadius: '999px',
               background: 'linear-gradient(135deg, #8B0042, #E0007A)',
               color: 'white', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
@@ -450,12 +450,12 @@ function CTA() {
           Hubungi kami hari ini dan ketahui bagaimana La Labs boleh membantu perniagaan anda berkembang.
         </p>
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="mailto:hello@la-labs.my" style={{
+          <a href="mailto:janamegaglobalmy@gmail.com" style={{
             padding: '14px 32px', borderRadius: '999px', background: 'white',
             color: '#8B0042', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
             boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
           }}>Hubungi Kami Sekarang</a>
-          <a href="https://wa.me/601112345678" style={{
+          <a href="https://wa.me/60175866188" style={{
             padding: '14px 32px', borderRadius: '999px',
             background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)',
             color: 'white', fontWeight: 600, fontSize: '15px', textDecoration: 'none',
@@ -510,7 +510,7 @@ function Footer() {
           <div>
             <h4 style={{ color: 'white', fontWeight: 700, marginBottom: '16px', fontSize: '15px' }}>Hubungi Kami</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
-              <div>📧 hello@la-labs.my</div>
+              <div>📧 janamegaglobalmy@gmail.com</div>
               <div>📱 +60 11-1234 5678</div>
               <div style={{ color: '#6b7280', fontSize: '12px', marginTop: '8px' }}>Isnin – Jumaat · 9 pagi – 6 petang</div>
             </div>
