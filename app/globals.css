@@ -34,7 +34,7 @@ body {
   .tabs-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .persona-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .hero-cards { grid-template-columns: 1fr !important; }
-  .hero-card-col { display: none !important; }
+  .hero-card-col { flex: 1 1 100% !important; margin-top: 24px !important; }
   .nav-links { display: none !important; }
   .nav-cta { display: none !important; }
   .nav-burger { display: flex !important; }
