@@ -78,16 +78,16 @@ function Hero() {
             <div style={{ marginBottom: '24px' }}>
               {/* Urgency promo badge */}
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: '#fee2e2', border: '1px solid #fca5a5', marginBottom: '14px' }}>
-                <span style={{ fontSize: '13px' }}>⏰</span>
-                <span style={{ color: '#991b1b', fontSize: '13px', fontWeight: 700 }}>Harga promo terhad — Jangan lepas!</span>
+                <span style={{ fontSize: '13px' }}>🎉</span>
+                <span style={{ color: '#991b1b', fontSize: '13px', fontWeight: 700 }}>50 orang bertuah dah beli RM 19 — harga kini RM 39!</span>
               </div>
 
               {/* Price display */}
               <div style={{ display: 'flex', alignItems: 'flex-end', gap: '12px', flexWrap: 'wrap', marginBottom: '6px' }}>
-                <div style={{ fontSize: '3.2rem', fontWeight: 800, color: G, lineHeight: 1 }}>RM 19</div>
+                <div style={{ fontSize: '3.2rem', fontWeight: 800, color: G, lineHeight: 1 }}>RM 39</div>
                 <div style={{ marginBottom: '8px' }}>
                   <div style={{ fontSize: '1.1rem', color: '#9ca3af', textDecoration: 'line-through', fontWeight: 600 }}>RM 297</div>
-                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>Jimat 93%</div>
+                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>Jimat 87% · Harga akan naik ke RM 69</div>
                 </div>
               </div>
 
@@ -415,8 +415,8 @@ function BuySection() {
           <div style={{ flex: '1 1 320px', background: 'white', borderRadius: '20px', border: `2px solid ${G}`, padding: '36px', boxShadow: `0 8px 32px ${G}15` }}>
             {/* Urgency notice */}
             <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px' }}>
-              <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '13px', marginBottom: '2px' }}>⏰ Harga Promo Terhad Masa</div>
-              <div style={{ color: '#7f1d1d', fontSize: '12px' }}>Harga ini mungkin naik tidak lama lagi. Dapatkan sekarang sebelum terlambat.</div>
+              <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '13px', marginBottom: '2px' }}>🎉 50 orang bertuah dah beli RM 19</div>
+              <div style={{ color: '#7f1d1d', fontSize: '12px' }}>Harga kini RM 39 — akan naik ke RM 69 tidak lama lagi.</div>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
@@ -429,10 +429,10 @@ function BuySection() {
 
             <div style={{ marginBottom: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px' }}>
-                <div style={{ fontSize: '3.2rem', fontWeight: 800, color: G, lineHeight: 1 }}>RM 19</div>
+                <div style={{ fontSize: '3.2rem', fontWeight: 800, color: G, lineHeight: 1 }}>RM 39</div>
                 <div style={{ marginBottom: '8px' }}>
                   <div style={{ fontSize: '1rem', color: '#9ca3af', textDecoration: 'line-through', fontWeight: 600 }}>RM 297</div>
-                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>Jimat 93%</div>
+                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>Jimat 87% · Akan naik ke RM 69</div>
                 </div>
               </div>
             </div>
@@ -474,7 +474,7 @@ function BuySection() {
                 boxShadow: `0 4px 16px ${G}40`, marginBottom: '10px',
               }}
             >
-              Dapatkan Sekarang — RM 19
+              Dapatkan Sekarang — RM 39
             </a>
 
             <div style={{ textAlign: 'center', color: '#9ca3af', fontSize: '12px', marginBottom: '6px' }}>
@@ -492,7 +492,7 @@ function BuySection() {
               {[
                 {
                   q: 'Berapa kos dan berapa lama lesen ini?',
-                  a: 'Harga promo sekarang RM 19 — dan lesen ini sah sehingga 31 Disember 2026. Harga asal sistem ini adalah RM 297. Promo ini terhad masa, harga mungkin naik tidak lama lagi.',
+                  a: 'Harga sekarang RM 39 — dan lesen ini sah sehingga 31 Disember 2026. Harga asal sistem ini adalah RM 297. 50 orang bertuah dah beli pada harga RM 19, harga akan naik ke RM 69 tidak lama lagi.',
                 },
                 {
                   q: 'Apa berlaku selepas 31 Disember 2026?',
