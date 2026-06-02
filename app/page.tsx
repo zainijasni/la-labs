@@ -125,7 +125,7 @@ function Hero() {
                 { name: 'FixLa', live: true },
                 { name: 'MakanLa', live: true },
                 { name: 'StudyLa', live: true },
-                { name: 'DuitLa ✦', live: false },
+                { name: 'DuitLa 🔜', live: false },
               ].map(p => (
                 <span key={p.name} style={{
                   padding: '5px 14px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
@@ -153,7 +153,7 @@ function Hero() {
                 { name: 'FixLa', desc: 'Marketplace Servis Tempatan', logo: '/logo-fixla.png', live: true },
                 { name: 'MakanLa', desc: 'Food Discovery & Review App', logo: '/logo-makanla.png', live: true },
                 { name: 'StudyLa', desc: 'Platform Pembelajaran Keluarga', logo: '/logo-studyla.png', live: true },
-                { name: 'DuitLa', desc: 'Pengurusan Kewangan Peribadi', logo: null, live: false },
+                { name: 'DuitLa', desc: 'Personal Finance Tracker', logo: null, live: false },
               ].map(p => (
                 <div key={p.name} style={{
                   display: 'flex', alignItems: 'center', gap: '12px',
@@ -251,10 +251,10 @@ function ProductsGrid() {
     },
     {
       name: 'DuitLa',
-      tagline: 'Duit terurus, hidup tenang.',
-      desc: 'Aplikasi pengurusan kewangan peribadi untuk orang Malaysia — pantau perbelanjaan, tetapkan bajet, dan capai matlamat kewangan dengan mudah.',
+      tagline: 'Track duit, senang la!',
+      desc: 'Rekod perbelanjaan terus dalam Telegram — taip "nasi lemak RM8" dan AI auto detect kategori. Web dashboard dengan graf, laporan bulanan, budget tracker, dan pembantu cukai LHDN.',
       logo: null, color: '#0A7A6E', bg: '#E6F7F5', live: false,
-      url: '#',
+      url: 'https://duitla.la-labs.my',
     },
   ]
 
@@ -495,7 +495,7 @@ function Footer() {
                 { name: 'FixLa — Marketplace Servis', live: true },
                 { name: 'MakanLa — Food Discovery', live: true },
                 { name: 'StudyLa — Platform Pembelajaran', live: true },
-                { name: 'DuitLa — Kewangan Peribadi', live: false },
+                { name: 'DuitLa — Personal Finance Tracker', live: false },
               ].map(item => (
                 <li key={item.name}>
                   <a href="#" style={{ color: item.live ? '#9ca3af' : '#6b7280', textDecoration: 'none' }}>
