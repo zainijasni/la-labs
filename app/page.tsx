@@ -121,18 +121,20 @@ function Hero() {
             {/* Product pills */}
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {[
-                { name: 'Gajila', live: true },
-                { name: 'FixLa', live: true },
-                { name: 'MakanLa', live: true },
-                { name: 'StudyLa', live: true },
-                { name: 'DuitLa', live: true },
+                { name: 'Gajila', s: 'live' },
+                { name: 'FixLa', s: 'testing' },
+                { name: 'MakanLa', s: 'testing' },
+                { name: 'StudyLa', s: 'live' },
+                { name: 'DuitLa', s: 'live' },
               ].map(p => (
                 <span key={p.name} style={{
                   padding: '5px 14px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
-                  background: p.live ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.07)',
-                  border: `1px solid ${p.live ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)'}`,
-                  color: p.live ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)',
-                }}>{p.name}</span>
+                  background: p.s === 'live' ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.07)',
+                  border: `1px solid ${p.s === 'live' ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)'}`,
+                  color: p.s === 'live' ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.55)',
+                }}>
+                  {p.name}{p.s === 'testing' ? ' ◐' : ''}
+                </span>
               ))}
             </div>
           </div>
@@ -149,16 +151,16 @@ function Hero() {
               </div>
 
               {[
-                { name: 'Gajila', desc: 'Sistem Penggajian Malaysia', logo: '/logo-gajila.png', live: true },
-                { name: 'FixLa', desc: 'Marketplace Servis Tempatan', logo: '/logo-fixla.png', live: true },
-                { name: 'MakanLa', desc: 'Food Discovery & Review App', logo: '/logo-makanla.png', live: true },
-                { name: 'StudyLa', desc: 'Platform Pembelajaran Keluarga', logo: '/logo-studyla.png', live: true },
-                { name: 'DuitLa', desc: 'Personal Finance Tracker', logo: '/logo-duitla.png', live: true },
+                { name: 'Gajila', desc: 'Sistem Penggajian Malaysia', logo: '/logo-gajila.png', s: 'live' },
+                { name: 'FixLa', desc: 'Marketplace Servis Tempatan', logo: '/logo-fixla.png', s: 'testing' },
+                { name: 'MakanLa', desc: 'Food Discovery & Review App', logo: '/logo-makanla.png', s: 'testing' },
+                { name: 'StudyLa', desc: 'Platform Pembelajaran Keluarga', logo: '/logo-studyla.png', s: 'live' },
+                { name: 'DuitLa', desc: 'Personal Finance Tracker', logo: '/logo-duitla.png', s: 'live' },
               ].map(p => (
                 <div key={p.name} style={{
                   display: 'flex', alignItems: 'center', gap: '12px',
                   padding: '10px 12px', borderRadius: '12px', marginBottom: '8px',
-                  background: p.live ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+                  background: p.s === 'live' ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
                 }}>
                   <div style={{ width: '40px', height: '40px', flexShrink: 0, borderRadius: '10px', background: '#111', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {p.logo
@@ -172,9 +174,9 @@ function Hero() {
                   </div>
                   <span style={{
                     fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '999px',
-                    background: p.live ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.1)',
-                    color: p.live ? '#4ade80' : 'rgba(255,255,255,0.4)',
-                  }}>{p.live ? 'Live' : 'Soon'}</span>
+                    background: p.s === 'live' ? 'rgba(74,222,128,0.2)' : p.s === 'testing' ? 'rgba(251,191,36,0.2)' : 'rgba(255,255,255,0.1)',
+                    color: p.s === 'live' ? '#4ade80' : p.s === 'testing' ? '#fbbf24' : 'rgba(255,255,255,0.4)',
+                  }}>{p.s === 'live' ? 'Live' : p.s === 'testing' ? 'Testing' : 'Soon'}</span>
                 </div>
               ))}
             </div>
@@ -196,7 +198,7 @@ function Hero() {
 function StatsBar() {
   const stats = [
     { num: '5', label: 'Produk Digital' },
-    { num: '5', label: 'Produk Live Sekarang' },
+    { num: '3', label: 'Produk Live Sekarang' },
     { num: '100%', label: 'Made in Malaysia' },
     { num: '2024', label: 'Ditubuhkan' },
   ]
@@ -225,35 +227,35 @@ function ProductsGrid() {
       name: 'Gajila',
       tagline: 'Gaji selesai, kerja senang.',
       desc: 'Sistem penggajian Malaysia yang lengkap — KWSP, SOCSO, PCB, EIS, HRDF dan Zakat dikira secara automatik. Tersedia dalam format Excel (Lite) untuk SME dan Web App (Pro) untuk syarikat yang lebih besar.',
-      logo: '/logo-gajila.png', color: '#1D6F42', bg: '#E8F5EE', live: true,
+      logo: '/logo-gajila.png', color: '#1D6F42', bg: '#E8F5EE', status: 'live',
       url: '/gajila',
     },
     {
       name: 'FixLa',
       tagline: 'Cari servis, selesai masalah.',
       desc: 'Marketplace yang menghubungkan pelanggan dengan service provider tempatan — tukang elektrik, aircond, plumbing, IT, dan banyak lagi. Post kerja, terima bid, pilih terbaik.',
-      logo: '/logo-fixla.png', color: '#1D9E75', bg: '#E6F7F3', live: true,
+      logo: '/logo-fixla.png', color: '#1D9E75', bg: '#E6F7F3', status: 'testing',
       url: 'https://fixla.my',
     },
     {
       name: 'MakanLa',
       tagline: 'Jejak Selera Kau.',
       desc: 'App food discovery Malaysia yang bantu kau decide nak makan apa. Explore kedai berdekatan, rate & review, jana Review Card viral, dan simpan Foodie Map perjalanan makan kau.',
-      logo: '/logo-makanla.png', color: '#E05A00', bg: '#FFF3E8', live: true,
-      url: '#',
+      logo: '/logo-makanla.png', color: '#E05A00', bg: '#FFF3E8', status: 'testing',
+      url: '',
     },
     {
       name: 'StudyLa',
       tagline: 'Faham dulu, baru jawab.',
       desc: 'Platform pembelajaran keluarga dengan Kaedah 3 Lapisan — bimbing anak Tahun 1–5 memahami sebelum menjawab. Soalan dijana AI mengikut kurikulum KSSR Semakan 2017.',
-      logo: '/logo-studyla.png', color: '#7B3FA8', bg: '#F3EEF9', live: true,
+      logo: '/logo-studyla.png', color: '#7B3FA8', bg: '#F3EEF9', status: 'live',
       url: '/studyla',
     },
     {
       name: 'DuitLa',
       tagline: 'Track duit, senang la!',
       desc: 'Rekod perbelanjaan terus dalam Telegram — taip "nasi lemak RM8" dan AI auto detect kategori. Web dashboard dengan graf, laporan bulanan, budget tracker, dan pembantu cukai LHDN.',
-      logo: '/logo-duitla.png', color: '#0A7A6E', bg: '#E6F7F5', live: true,
+      logo: '/logo-duitla.png', color: '#0A7A6E', bg: '#E6F7F5', status: 'live',
       url: 'https://duitla.la-labs.my',
     },
   ]
@@ -286,37 +288,43 @@ function ProductsGrid() {
   )
 }
 
-function ProductCard({ p }: { p: { name: string; tagline: string; desc: string; logo: string | null; color: string; bg: string; live: boolean; url: string } }) {
+function ProductCard({ p }: { p: { name: string; tagline: string; desc: string; logo: string | null; color: string; bg: string; status: string; url: string } }) {
+  const isLive = p.status === 'live'
+  const isTesting = p.status === 'testing'
+  const badge = isLive
+    ? { bg: '#dcfce7', color: '#15803d', label: '● Live' }
+    : isTesting
+    ? { bg: '#fef3c7', color: '#d97706', label: '◐ Testing' }
+    : { bg: '#f3f4f6', color: '#9ca3af', label: '○ Akan Datang' }
+
   return (
     <div style={{
       borderRadius: '20px', padding: '28px',
-      border: `1.5px solid ${p.live ? p.color + '25' : '#f0f0f0'}`,
-      background: p.live ? `linear-gradient(145deg, white, ${p.bg}60)` : 'white',
-      boxShadow: p.live ? `0 4px 24px ${p.color}12` : 'none',
+      border: `1.5px solid ${isLive ? p.color + '25' : isTesting ? '#fbbf2440' : '#f0f0f0'}`,
+      background: isLive ? `linear-gradient(145deg, white, ${p.bg}60)` : 'white',
+      boxShadow: isLive ? `0 4px 24px ${p.color}12` : 'none',
       display: 'flex', flexDirection: 'column', gap: 0,
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-        {/* Logo icon — black bg, logo atas */}
         <div style={{ width: '72px', height: '72px', borderRadius: '18px', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
           {p.logo
             ? <img src={p.logo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             : <span style={{ fontSize: '32px' }}>💳</span>
           }
         </div>
-        <span style={{
-          fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '999px',
-          background: p.live ? '#dcfce7' : '#f3f4f6', color: p.live ? '#15803d' : '#9ca3af',
-        }}>{p.live ? '● Live' : '○ Akan Datang'}</span>
+        <span style={{ fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '999px', background: badge.bg, color: badge.color }}>
+          {badge.label}
+        </span>
       </div>
       <div style={{ fontWeight: 800, fontSize: '19px', color: '#111', marginBottom: '4px' }}>{p.name}</div>
       <div style={{ fontWeight: 600, fontSize: '13px', color: p.color, marginBottom: '12px' }}>{p.tagline}</div>
       <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: 1.7, flex: 1 }}>{p.desc}</p>
-      {p.live && p.url !== '#' && (
+      {p.url && (
         <a href={p.url} target={p.url.startsWith('/') ? '_self' : '_blank'} rel="noopener noreferrer" style={{
           display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '16px',
           fontSize: '13px', fontWeight: 700, color: p.color, textDecoration: 'none',
         }}>
-          Lawati {p.name} →
+          {isLive ? `Lawati ${p.name}` : `Lihat ${p.name}`} →
         </a>
       )}
     </div>
@@ -546,3 +554,4 @@ export default function Home() {
     </>
   )
 }
+
