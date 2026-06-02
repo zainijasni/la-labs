@@ -19,7 +19,7 @@ const G2 = '#E8F5EE'
    Replace DRIVE_LINK below with your actual Google Drive file link.
 ────────────────────────────────────────────────────────────────────── */
 
-const DRIVE_LINK = 'https://docs.google.com/spreadsheets/d/1znncCtxazW07JsGrIaDprxYbMa1lGcBR/edit?usp=sharing'
+const DRIVE_LINK = 'https://drive.google.com/file/d/1EoAHiXyl5_EvQU-Twf8gqmihal3aon-t/view?usp=sharing'
 
 export default function TerimaKasih() {
   const router = useRouter()
