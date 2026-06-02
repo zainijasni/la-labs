@@ -152,6 +152,36 @@ export default function TerimaKasih() {
           </div>
         </div>
 
+        {/* Download guide */}
+        <div style={{
+          background: '#f0f7ff', border: '1.5px solid #93c5fd', borderRadius: '14px',
+          padding: '20px 24px', marginBottom: '24px', textAlign: 'left',
+        }}>
+          <div style={{ fontWeight: 700, color: '#1e40af', fontSize: '14px', marginBottom: '12px' }}>
+            📥 Cara download fail dari Google Drive:
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {[
+              'Buka email anda — cari email dari Google Drive (semak folder Spam juga)',
+              'Klik link dalam email tersebut untuk buka fail di Google Drive',
+              'Klik ikon muat turun (⬇) di bahagian atas kanan, ATAU klik menu ⋮ → "Download"',
+              'Fail .xlsm akan dimuat turun — simpan di tempat yang mudah dicari',
+              '⚠️ Buka dengan Microsoft Excel sahaja, BUKAN Google Sheets',
+            ].map((s, i) => (
+              <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '22px', height: '22px', borderRadius: '50%', background: '#1d4ed8',
+                  color: 'white', fontSize: '11px', fontWeight: 700, flexShrink: 0,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  {i + 1}
+                </div>
+                <span style={{ color: '#1e3a8a', fontSize: '13px', lineHeight: 1.6, paddingTop: '2px' }}>{s}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Support */}
         <div style={{ padding: '16px 20px', borderRadius: '12px', background: '#f8fafc', border: '1px solid #f0f0f0' }}>
           <div style={{ color: '#6b7280', fontSize: '13px', marginBottom: '10px' }}>
