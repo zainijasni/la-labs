@@ -76,18 +76,38 @@ function Hero() {
 
             {/* Price + CTA */}
             <div style={{ marginBottom: '24px' }}>
-              {/* Urgency promo badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: '#fee2e2', border: '1px solid #fca5a5', marginBottom: '14px' }}>
-                <span style={{ fontSize: '13px' }}>🎉</span>
-                <span style={{ color: '#991b1b', fontSize: '13px', fontWeight: 700 }}>50 orang bertuah dah beli RM 19 — harga kini RM 39!</span>
+
+              {/* RM19 gone — FOMO strip */}
+              <div style={{ background: '#fef9c3', border: '1px solid #fde047', borderRadius: '10px', padding: '10px 14px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '16px' }}>😢</span>
+                  <div>
+                    <div style={{ fontWeight: 700, color: '#713f12', fontSize: '13px' }}>Harga RM 19 dah <span style={{ textDecoration: 'line-through' }}>RM 19</span> — dah terlepas!</div>
+                    <div style={{ color: '#92400e', fontSize: '12px' }}>50 orang pertama dah grab. Tahniah kepada mereka 🎉</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Current price urgency */}
+              <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '10px 14px', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '16px' }}>⚡</span>
+                  <div>
+                    <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '13px' }}>Jangan lepas lagi! Harga RM 39 pun tak kekal lama.</div>
+                    <div style={{ color: '#7f1d1d', fontSize: '12px' }}>Lepas ni naik ke RM 69 — rebut sekarang sebelum terlambat.</div>
+                  </div>
+                </div>
               </div>
 
               {/* Price display */}
               <div style={{ display: 'flex', alignItems: 'flex-end', gap: '12px', flexWrap: 'wrap', marginBottom: '6px' }}>
                 <div style={{ fontSize: '3.2rem', fontWeight: 800, color: G, lineHeight: 1 }}>RM 39</div>
                 <div style={{ marginBottom: '8px' }}>
-                  <div style={{ fontSize: '1.1rem', color: '#9ca3af', textDecoration: 'line-through', fontWeight: 600 }}>RM 297</div>
-                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>Jimat 87% · Harga akan naik ke RM 69</div>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.95rem', color: '#9ca3af', textDecoration: 'line-through', fontWeight: 600 }}>RM 19 ✗</span>
+                    <span style={{ fontSize: '0.95rem', color: '#9ca3af', textDecoration: 'line-through', fontWeight: 600 }}>RM 297</span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700 }}>⬆ Akan naik ke RM 69 · Jimat 87% sekarang</div>
                 </div>
               </div>
 
@@ -414,9 +434,14 @@ function BuySection() {
           {/* Price card */}
           <div style={{ flex: '1 1 320px', background: 'white', borderRadius: '20px', border: `2px solid ${G}`, padding: '36px', boxShadow: `0 8px 32px ${G}15` }}>
             {/* Urgency notice */}
-            <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px' }}>
-              <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '13px', marginBottom: '2px' }}>🎉 50 orang bertuah dah beli RM 19</div>
-              <div style={{ color: '#7f1d1d', fontSize: '12px' }}>Harga kini RM 39 — akan naik ke RM 69 tidak lama lagi.</div>
+            <div style={{ marginBottom: '16px' }}>
+              <div style={{ background: '#fef9c3', border: '1px solid #fde047', borderRadius: '10px', padding: '10px 14px', marginBottom: '8px' }}>
+                <div style={{ fontWeight: 700, color: '#713f12', fontSize: '13px' }}>😢 Harga <span style={{ textDecoration: 'line-through' }}>RM 19</span> dah terlepas — 50 orang bertuah dah grab!</div>
+              </div>
+              <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '10px 14px' }}>
+                <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '13px', marginBottom: '2px' }}>⚡ Jangan lepas lagi — harga RM 39 pun tak kekal!</div>
+                <div style={{ color: '#7f1d1d', fontSize: '12px' }}>Lepas ni naik ke RM 69. Dapatkan sekarang.</div>
+              </div>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
