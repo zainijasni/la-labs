@@ -82,7 +82,7 @@ function Hero() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ fontSize: '16px' }}>😢</span>
                   <div>
-                    <div style={{ fontWeight: 700, color: '#713f12', fontSize: '13px' }}>Harga RM 19 dah <span style={{ textDecoration: 'line-through' }}>RM 19</span> — dah terlepas!</div>
+                    <div style={{ fontWeight: 700, color: '#713f12', fontSize: '13px' }}>Harga <span style={{ textDecoration: 'line-through' }}>RM 19</span> dah terlepas!</div>
                     <div style={{ color: '#92400e', fontSize: '12px' }}>50 orang pertama dah grab. Tahniah kepada mereka 🎉</div>
                   </div>
                 </div>
