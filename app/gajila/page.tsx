@@ -78,13 +78,24 @@ function Hero() {
             <div style={{ marginBottom: '24px' }}>
 
               {/* RM19 gone — FOMO strip */}
-              <div style={{ background: '#fef9c3', border: '1px solid #fde047', borderRadius: '10px', padding: '10px 14px', marginBottom: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ background: '#fef9c3', border: '1px solid #fde047', borderRadius: '10px', padding: '12px 14px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                   <span style={{ fontSize: '16px' }}>😢</span>
                   <div>
                     <div style={{ fontWeight: 700, color: '#713f12', fontSize: '13px' }}>Harga <span style={{ textDecoration: 'line-through' }}>RM 19</span> dah terlepas!</div>
                     <div style={{ color: '#92400e', fontSize: '12px' }}>50 orang pertama dah grab. Tahniah kepada mereka 🎉</div>
                   </div>
+                </div>
+                {/* Proof screenshot */}
+                <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid #fde047' }}>
+                  <div style={{ background: '#713f12', padding: '5px 10px' }}>
+                    <span style={{ color: '#fef9c3', fontSize: '11px', fontWeight: 700 }}>📋 Bukti transaksi sebenar — 2 Jun 2026</span>
+                  </div>
+                  <img
+                    src="/proof-rm19.jpg"
+                    alt="Bukti transaksi Gajila Lite RM 19"
+                    style={{ width: '100%', display: 'block', maxHeight: '280px', objectFit: 'cover', objectPosition: 'top' }}
+                  />
                 </div>
               </div>
 
